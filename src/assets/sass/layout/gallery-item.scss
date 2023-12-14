@@ -1,0 +1,29 @@
+.gallery-item {
+      width: 150px;
+      min-width: 150px;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+    }
+  }
+  
+  .gallery-item-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    min-height: 225px;
+
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .content {
+    width: 100%;
+    padding: 26px 10px 12px;
+    white-space: normal;
+    font-size: 12px;
+  }

@@ -1,0 +1,35 @@
+.btn {
+    padding: 10px 15px;
+    margin-top: 30px;
+    display: block;
+    min-width: 250px;
+    background: $accent-color;
+    color: $white-color;
+    border: none;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 250ms $timing-function;
+    }
+}
+
+.btn-accent {
+    @extend .btn;
+    background:  $white-color;
+    color: $accent-color;
+  }
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.position {
+    margin-right: auto;
+    margin-left: auto;
+}

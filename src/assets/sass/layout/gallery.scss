@@ -1,0 +1,24 @@
+.trands {
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url('@/assets/images/svg/trands-bg.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 200px;
+  background-size: $max-width;
+  overflow: hidden;
+}
+
+.gallery {
+  width: 100%;
+  min-width: $max-width;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0 30px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transition: height 0.5s linear;
+}

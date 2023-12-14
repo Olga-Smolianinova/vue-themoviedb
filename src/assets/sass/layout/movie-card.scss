@@ -1,0 +1,18 @@
+.movie {
+    max-width: 1600px;
+}
+.card {
+    display: flex;
+    widows: 100%;
+
+    &__info {
+        width: 70%;
+        margin-left: 20px;
+    }
+    &__title {
+        font-size: 32px;
+    }
+    &__text {
+        margin: 10px 0
+    }
+}
