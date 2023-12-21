@@ -1,5 +1,4 @@
-.main-nav {
-  position: relative;
+.header {
   display: flex;
   align-items: center;
   width: 100%;
@@ -9,6 +8,13 @@
   margin-right: auto;
   margin-left: auto;
   background-color: $primary-background-color;
+
+  &__show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
 }
 
 .navigation {

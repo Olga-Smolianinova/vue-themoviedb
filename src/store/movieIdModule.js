@@ -25,7 +25,7 @@ export const useMovieIdPageStore = defineStore('movieId', {
           },
         });
         this.movie = response.data;
-      } catch (error) {
+      } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
         this.isLoading = false;
@@ -43,7 +43,7 @@ export const useMovieIdPageStore = defineStore('movieId', {
         });
         this.cast = response.data.cast;
         this.crew = response.data.crew;
-      } catch (error) {
+      } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
         this.isCastLoading = false

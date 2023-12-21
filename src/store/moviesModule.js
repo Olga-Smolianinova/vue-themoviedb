@@ -11,7 +11,7 @@ export const useMoviesPageStore = defineStore('movies', {
     page: 1,
     totalPages: 0,
     language: 'uk-UA',
-    limit: 20,
+    limit: 20
   }),
 
   actions: {
@@ -25,7 +25,7 @@ export const useMoviesPageStore = defineStore('movies', {
             language: this.language
           },
         });
-        
+
         this.totalPages = response.data.total_pages;
         this.movies = response.data.results;
       } catch (err) {
@@ -47,7 +47,7 @@ export const useMoviesPageStore = defineStore('movies', {
         });
         this.totalPages = response.data.total_pages;
         this.movies = [...this.movies, ...response.data.results];
-      } catch (error) {
+      } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
         this.isLoading = false;

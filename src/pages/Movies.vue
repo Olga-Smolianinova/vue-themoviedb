@@ -28,7 +28,7 @@
 
       <template v-else>
           <my-spinner v-if="store.isLoading"/>
-          <p v-else>Завантаження...</p>
+          <p v-else>Немає даних</p>
       </template>
     </section>
   </main>

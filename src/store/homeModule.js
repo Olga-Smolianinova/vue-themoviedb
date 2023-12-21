@@ -32,7 +32,7 @@ export const useHomePageStore = defineStore('home', {
         });
         this.totalPages = Math.ceil(response.data.total_pages / this.limit);
         this.trendingMovies = response.data.results;
-      } catch (error) {
+      } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
         this.isTrendingMoviesLoading = false;
@@ -51,7 +51,7 @@ export const useHomePageStore = defineStore('home', {
         });
         this.totalPages = Math.ceil(response.data.total_pages / this.limit);
         this.popularMovies = response.data.results;
-      } catch (e) {
+      } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
         this.isPopMoviesLoading = false;

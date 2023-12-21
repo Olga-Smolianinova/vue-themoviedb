@@ -1,7 +1,7 @@
 <template>
     <h2 
-      class="section__title" 
-      v-if="movies?.length">
+      class="section__title"
+    >
         {{title}}
     </h2>
       <ul :class="className">
