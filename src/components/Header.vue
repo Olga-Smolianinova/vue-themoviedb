@@ -9,11 +9,11 @@
                     <router-link 
                         :to="{ name: 'home' }" 
                         exact
-                        router-link-exact-active
+                        router-link-exact-active 
                     >
                         <img 
                             src="@/assets/images/svg/logo.svg" alt="Themoviedb logo"
-                            class="header__logo"
+                            class="header__logo link"
                         />
                     </router-link>
                 </li>
