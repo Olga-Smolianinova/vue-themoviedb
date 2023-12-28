@@ -5,7 +5,7 @@
             className="search__input"
             type="text"
             name="search"
-            placeholder="Пошук фільму, серіалу, персони..."
+            placeholder="Пошук..."
             v-model="searchQuery"
           />
 
