@@ -2,8 +2,7 @@
     max-width: 1600px;
 }
 .card {
-    display: flex;
-    widows: 100%;
+    @include display-flex(flex);
 
     &__info {
         width: 70%;

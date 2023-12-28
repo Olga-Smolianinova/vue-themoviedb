@@ -1,8 +1,8 @@
-.hero {
+.banner {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: $max-width;
+  max-width: $maxWidth;
   min-height: 300px;
   padding: 30px;
   margin-right: auto;
@@ -12,27 +12,22 @@
   background-size: cover;
   background-color: rgba(47, 48, 58, 0.4);
   overflow: hidden;
-  color: $white-color;
+  color: $whiteColor;
 
   &__title {
     font-weight: 700;
-    font-size: 3em;
+    font-size: 45px;
     line-height: 1;
   }
   &__subtitle {
     font-weight: 600;
-    font-size: 2em;
+    font-size: 40px;
     margin-bottom: 20px;
   }
-}
-
-
-
-.search {
-  width: 100%;
-}
-.searchForm {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  &__background {
+    background-image: linear-gradient(to right,
+        rgba($primaryBackgroundColor, 0.8) 0%,
+        rgba($primaryBackgroundColor, 0) 100%),
+      url('https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg');
+  }
 }

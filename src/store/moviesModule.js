@@ -10,7 +10,6 @@ export const useMoviesPageStore = defineStore('movies', {
     movies: [],
     page: 1,
     totalPages: 0,
-    language: 'uk-UA',
     limit: 20
   }),
 
@@ -21,8 +20,7 @@ export const useMoviesPageStore = defineStore('movies', {
 
         const response = await apiAxios.get(`/movie/now_playing`, {
           params: {
-            page: this.page,
-            language: this.language
+            page: this.page
           },
         });
 
@@ -41,8 +39,7 @@ export const useMoviesPageStore = defineStore('movies', {
         this.page += 1;
         const response = await apiAxios.get(`/movie/now_playing`, {
           params: {
-            page: this.page,
-            language: this.language,
+            page: this.page
           },
         });
         this.totalPages = response.data.total_pages;

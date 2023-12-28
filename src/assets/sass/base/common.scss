@@ -10,13 +10,14 @@ html {
   
   body {
     margin: 0;
-    font-family: $main-font-family;
+    font-family: $mainFontFamily;
     font-weight: 400;
     letter-spacing: 0.5px;
-    background-color: $white-color;
+    background-color: $whiteColor;
   }
   main {
     min-height: 25vh;
+    margin-top: 60px;
   }
   h1,
   h2,
@@ -41,7 +42,7 @@ html {
   }
 
   .section {
-    max-width: $max-width;
+    max-width: $maxWidth;
     padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -50,6 +51,17 @@ html {
     &__title {
       margin: 0 30px 30px;
       font-size: 30px;
+    }
+
+    &__background {
+      max-width: $maxWidth;
+      margin-right: auto;
+      margin-left: auto;
+      background-image: url('@/assets/images/svg/trands-bg.svg');
+      background-repeat: no-repeat;
+      background-position: 50% 200px;
+      background-size: $maxWidth;
+      overflow: hidden;
     }
   }
 
@@ -65,9 +77,25 @@ html {
     }
   
     @include for-size(desktop) {
-      width: $max-width;
+      width: $maxWidth;
     }
   }
 
+  .flex-justify-center {
+    @include display-flex(flex-justify-center)
+  }
+
+  .flex-justify-flex-end {
+    @include display-flex(flex-justify-flex-end)
+  }
+
+  .margin-auto {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .ml-20 {
+    margin-left: 20px;
+  }
   
 

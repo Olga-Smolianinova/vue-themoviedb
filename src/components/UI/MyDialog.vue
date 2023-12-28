@@ -5,7 +5,7 @@
     @click="showModal = false"
    >
     <div 
-        class="dialog__content"
+        :class="className"
         @click.stop 
     >
         <slot />
@@ -14,23 +14,27 @@
 </template>
 
 <script setup>
- import { ref, watch } from 'vue';
+    import { ref, watch } from 'vue';
 
-const props = defineProps({
-    show: {
-        type: Boolean,
-        default: false
-    }
-})
-const showModal = ref(false)
-const emit = defineEmits(['update:show'])
+    const showModal = ref(false);
+    const emit = defineEmits(['update:show']);
 
-watch(
-    () => props.show, 
-    (value) => showModal.value = value
-)
-watch(
-    () => showModal.value, 
-    (value) => emit('update:show', value)
-)
+    watch(
+        () => props.show, 
+        (value) => showModal.value = value
+    );
+    watch(
+        () => showModal.value, 
+        (value) => emit('update:show', value)
+    );
+
+    const props = defineProps({
+        show: {
+            type: Boolean,
+            default: false
+        },
+        className: {
+            type: String
+        }
+    })
 </script>

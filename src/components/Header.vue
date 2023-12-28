@@ -1,31 +1,33 @@
 <template>
-    <header class="header">
-        <nav class="container header header__show" ref="el">
-            <ul class="navigation">
-                <li class="navigation__item link">
+    <header
+        ref="el"
+        class="header header__show" 
+    >
+        <nav class="container">
+            <ul class="header__nav">
+                <li class="header__nav-item">
                     <router-link 
                         :to="{ name: 'home' }" 
-                        exact 
-                        class="active">
+                        exact
+                        router-link-exact-active
+                    >
                         <img 
-                            src="@/assets/images/svg/logo.svg" alt="Themoviedb logo" 
-                            width="" 
-                            height=""
-                            class="navigation__logo"
+                            src="@/assets/images/svg/logo.svg" alt="Themoviedb logo"
+                            class="header__logo"
                         />
                     </router-link>
                 </li>
-                <li class="navigation__item link">
+                <li class="header__nav-item link">
                     <router-link 
-                        :to="{ name: 'movies' }" 
-                        class="active">
+                        :to="{ name: 'movies' }"
+                    >
                             Фільми
                     </router-link>
                 </li>
-                <li class="navigation__item link">
-                    <router-link 
+                <li class="header__nav-item link">
+                    <router-link
                         :to="{ name: 'library' }" 
-                        class="active">
+                    >
                             Бібліотека
                     </router-link>
                 </li>

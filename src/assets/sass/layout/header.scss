@@ -7,7 +7,7 @@
   padding-right: 30px;
   margin-right: auto;
   margin-left: auto;
-  background-color: $primary-background-color;
+  background-color: $primaryBackgroundColor;
 
   &__show {
     position: fixed;
@@ -15,34 +15,45 @@
     left: 0;
     z-index: 999;
   }
-}
 
-.navigation {
-  display: flex;
+  &__nav {
+    @include display-flex(flex);
 
-  &__item {
-    font-weight: 600;
-    font-size: 20px;
-  }
-  &__item:not(:last-child) {
-    position: relative;
-    margin-right: 50px;
+    &-item {
+      font-weight: 600;
+      font-size: 20px;
+    }
+    &-item:not(:last-child) {
+      position: relative;
+      margin-right: 50px;
+    }
   }
 
   &__logo {
-    width: 154px;
-    height: 20px;
+    min-width: 154px;
+    min-height: 20px;
+  }
+
+  &__nav .link {
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+      transition: transform 250ms $timingFunction;
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 2;
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: $accentColor;
+      }
+    }
   }
 }
 
-.navigation .link {
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-    transition: transform 250ms $timing-function;
-  }
-}
-
-.active {
-  color: $white-color;
+.router-link-exact-active {
+  color: $whiteColor;
 }

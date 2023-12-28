@@ -8,10 +8,9 @@ export const useMovieIdPageStore = defineStore('movieId', {
   state: () => ({
     isLoading: false,
     movie: null,
-    isCastLoading: false,
-    cast: [],
-    crew: [],
-    language: 'uk-UA'
+    
+    isMovieVideoLoading: false,
+    trailer: null
   }),
 
   actions: {
@@ -19,11 +18,7 @@ export const useMovieIdPageStore = defineStore('movieId', {
       try {
         this.isLoading = true;
 
-        const response = await apiAxios.get(`/movie/${movieId}`, {
-          params: {
-            language: this.language,
-          },
-        });
+        const response = await apiAxios.get(`/movie/${movieId}`);
         this.movie = response.data;
       } catch (err) {
         toast.error(err?.message || 'Помилка');
@@ -32,21 +27,16 @@ export const useMovieIdPageStore = defineStore('movieId', {
       }
     },
 
-    async fetchCast(movieId) {
+    async fetchSelectedMovieVideo(movieId) {
       try {
-        this.isCastLoading = true;
+        this.isMovieVideoLoading = true;
 
-        const response = await apiAxios.get(`/movie/${movieId}/credits`, {
-          params: {
-            language: this.language,
-          },
-        });
-        this.cast = response.data.cast;
-        this.crew = response.data.crew;
+        const response = await apiAxios.get(`/movie/${movieId}/videos`);
+        this.trailer = response.data.results?.length > 0 && response.data.results[0];
       } catch (err) {
         toast.error(err?.message || 'Помилка');
       } finally {
-        this.isCastLoading = false
+        this.isMovieVideoLoading = false;
       }
     }
   }

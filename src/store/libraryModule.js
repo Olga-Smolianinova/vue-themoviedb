@@ -6,13 +6,12 @@ const movies = localStorage.getItem('movies');
 
 export const useLibraryPageStore = defineStore('library', {
   state: () => ({
-    watchlist: movies ? JSON.parse(movies) : [],
+    watchlist: movies ? JSON.parse(movies) : []
   }),
 
   actions: {
     addToLibrary(movie) {
       try {
-        isLoading: true;
         const film = this.watchlist.find(el => el.id === movie.id);
 
         if (film) {
@@ -29,9 +28,7 @@ export const useLibraryPageStore = defineStore('library', {
         localStorage.setItem('movies', JSON.stringify(this.watchlist));
       } catch (error) {
         toast.error('Щось пішло не так... Спробуйте ще раз');
-      } finally {
-        isLoading: false;
       }
-    },
-  },
+    }
+  }
 });

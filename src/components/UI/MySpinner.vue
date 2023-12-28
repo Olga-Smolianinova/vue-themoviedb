@@ -1,5 +1,5 @@
 <template>
-    <div class="spinner">
+    <div class="flex-justify-center">
         <img 
             src="@/assets/images/svg/spinner.svg" alt="spinner" 
             width="40" 

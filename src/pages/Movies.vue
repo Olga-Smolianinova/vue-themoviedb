@@ -1,18 +1,18 @@
 <template>
-  <navbar />
+  <my-header />
 
   <main>
     <section class="section movies">
       <div 
-        class="container"
-        v-if="store.movies?.length > 0"  
+        v-if="store.movies?.length > 0" 
       >
         <ul class="movies__gallery">
           <gallery-item
             v-for="movie in store.movies"
             :key="movie.id"
             :movie="movie"
-            className
+            classItem="movies__gallery-item"
+            classImg="movies__gallery-item__image"
           />
         </ul>
 
@@ -20,7 +20,7 @@
           v-if="hideButton" 
           :loading="store.isLoading"
           @click="store.loadMoreMovies"
-          className="btn position"
+          class="btn margin-auto"
         >
           Завантажити більше
         </my-button>
@@ -33,14 +33,14 @@
     </section>
   </main>
   
-  <navfooter />
+  <my-footer />
 </template>
 
 <script setup>
   import { computed, onMounted } from 'vue';
-  import Navbar from '@/components/Navbar.vue';
-  import Navfooter from '@/components/Footer.vue';
-  import { useMoviesPageStore } from '../store/moviesModule';
+  import MyHeader from '@/components/Header.vue';
+  import MyFooter from '@/components/Footer.vue';
+  import { useMoviesPageStore } from '@/store/moviesModule';
   import GalleryItem from '@/components/GalleryItem.vue';
   import MyButton from '@/components/UI/MyButton.vue';
   import MySpinner from '@/components/UI/MySpinner.vue';

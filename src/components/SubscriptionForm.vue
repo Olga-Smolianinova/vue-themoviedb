@@ -22,15 +22,15 @@
             v-model="email"
         />
 
-        <div class="form__btns">
+        <div class="flex-justify-flex-end">
             <my-button 
-                className="btn-accent"
+                class="btn-accent"
                 @click="onClose"
             >
                 Скасувати
             </my-button>
             <my-button
-                className="btn ml"
+                class="btn ml-20"
             >
                 Відправити
             </my-button>   

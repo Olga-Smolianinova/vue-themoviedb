@@ -1,48 +1,64 @@
 <template>
-  <li :class="className
-    ? 'movies-gallery-item'
-    : 'gallery-item'" @click="$router.push(`/movies/${movie.id}`)">
-    <img :src="movie
-      ? 'https://image.tmdb.org/t/p/original' + movie.poster_path
-      : DefaultImg" :alt="movie?.title || ''" :class="className
-    ? 'movies-gallery-item-image'
-    : 'gallery-item-image'" />
+  <li :class="classItem">
+    <img 
+      :src="movie
+        ? 'https://image.tmdb.org/t/p/w342' + movie.poster_path
+        : DefaultImg" 
+      :alt="movie?.title || ''" 
+      :class="classImg"
+      @click="$router.push(`/movies/${movie.id}`)"
+    />
 
-    <my-button
-      className="gallery-item-icon"
-      @click.stop
+    <my-button 
+      v-if="movie"  
+      :class="['heart-icon', {
+        'favorite': checkingLibrary
+      }]"
+      @click="libraryStore.addToLibrary(movie)"
     >
-      <Icon 
-        icon="mdi:heart-outline" 
-        width="32" 
-        height="32" 
-        @click="libraryStore.addToLibrary(movie)"
-      />
+      <heart-icon />
     </my-button>
 
-    <div class="content">
+    <div 
+      class="gallery__item-content"
+      @click="$router.push(`/movies/${movie.id}`)"
+    >
       <h2>{{ movie?.title || '' }}</h2>
-      <p>{{ movie?.release_date || '' }}</p>
-    </div>
+      <p class="gallery__item-content__text">{{ getFormattedReleaseDate }}</p>
+    </div> 
   </li>
 </template>
   
 <script setup>
-import DefaultImg from '../assets/images/default.jpg';
-import { Icon } from '@iconify/vue';
-import MyButton from '@/components/UI/MyButton.vue';
-import { useLibraryPageStore } from '../store/libraryModule';
+  import { computed } from 'vue';
+  import { format, isValid } from "date-fns";
+  import ukLocale from 'date-fns/locale/uk';
+  import { useLibraryPageStore } from '@/store/libraryModule';
+  import DefaultImg from '../assets/images/default.jpg';
+  import MyButton from '@/components/UI/MyButton.vue';
+  import HeartIcon from '@/components/UI/Icons/HeartIcon.vue';
 
-const libraryStore = useLibraryPageStore();
+  const libraryStore = useLibraryPageStore();
 
-const props = defineProps({
-  movie: {
-    type: Object,
-    default: () => { }
-  },
-  className: {
-    type: Boolean,
-    default: false
-  }
-})
+  const checkingLibrary = computed(() => libraryStore.watchlist.some(el => el.id === props?.movie?.id));
+
+  const getFormattedReleaseDate = computed(() => {
+    const releaseDate = props?.movie?.release_date;
+
+    return releaseDate && isValid(new Date(releaseDate))
+      ? format(new Date(releaseDate), 'dd MMM yyyy', { locale: ukLocale }) : '';
+  });
+
+  const props = defineProps({
+    movie: {
+      type: Object,
+      default: () => { }
+    },
+    classItem: {
+      type: String
+    },
+    classImg: {
+      type: String
+    }
+  })
 </script>

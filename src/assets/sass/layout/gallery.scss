@@ -1,17 +1,6 @@
-.trands {
-  max-width: $max-width;
-  margin-right: auto;
-  margin-left: auto;
-  background-image: url('@/assets/images/svg/trands-bg.svg');
-  background-repeat: no-repeat;
-  background-position: 50% 200px;
-  background-size: $max-width;
-  overflow: hidden;
-}
-
 .gallery {
   width: 100%;
-  min-width: $max-width;
+  min-width: $maxWidth;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -21,4 +10,68 @@
   overflow-x: scroll;
   overflow-y: hidden;
   transition: height 0.5s linear;
+
+  &__item {
+    position: relative;
+    width: 150px;
+    min-width: 150px;
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+      transition: transform 250ms $timingFunction;
+    }
+
+    &-image {
+      width: 100%;
+      object-fit: cover;
+      min-height: 225px;
+    }
+    &-content {
+      width: 100%;
+      padding: 26px 10px 12px;
+      white-space: normal;
+      font-size: 12px;
+    
+      &__text {
+        margin-top: 10px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+.gallery-icon {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.heart-icon {
+  @extend .gallery-icon;
+  top: 8px;
+  right: 8px;
+  fill-opacity: 0.3;
+
+  &:hover {
+    fill-opacity: 0.5;
+  }
+}
+.play-icon {
+  @extend .gallery-icon;
+  top: 25%;
+  right: 30%;
+}
+.favorite {
+  fill-opacity: 1;
+
+  &:hover {
+    fill-opacity: 1;
+  }
 }
