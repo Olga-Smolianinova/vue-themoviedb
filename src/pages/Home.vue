@@ -102,7 +102,7 @@
     await store.fetchUpcomingMovies();
 
     if(store.upcomingMovies?.length) {
-      const defaultTrailerPath = store.upcomingMovies[0].poster_path;
+      const defaultTrailerPath = store.upcomingMovies.find(el => !!el)?.poster_path;
       getTrailerPosterPath(defaultTrailerPath);
     }
   });
