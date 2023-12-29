@@ -33,7 +33,7 @@
 
   const emit = defineEmits(['update:modelValue']);
 
-  function emitValue(e) {
+  const emitValue = (e) => {
     let value = e.target.value
     emit('update:modelValue', value)
   }

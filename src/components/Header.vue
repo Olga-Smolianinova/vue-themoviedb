@@ -1,7 +1,7 @@
 <template>
     <header
         ref="el"
-        class="header header__show" 
+        class="header header--show" 
     >
         <nav class="container">
             <ul class="header__nav">
@@ -18,17 +18,13 @@
                     </router-link>
                 </li>
                 <li class="header__nav-item link">
-                    <router-link 
-                        :to="{ name: 'movies' }"
-                    >
-                            Фільми
+                    <router-link :to="{ name: 'movies' }">
+                        Фільми
                     </router-link>
                 </li>
                 <li class="header__nav-item link">
-                    <router-link
-                        :to="{ name: 'library' }" 
-                    >
-                            Бібліотека
+                    <router-link :to="{ name: 'library' }">
+                        Бібліотека
                     </router-link>
                 </li>
             </ul>
@@ -47,9 +43,9 @@
     
     watch(y,  (newValue, oldValue)  => {
       if(newValue > SCROLL_THRESHOLD && newValue > oldValue) {
-        el.value.classList.remove('header__show')
+        el.value.classList.remove('header--show')
       } else {
-        el.value.classList.add('header__show')
+        el.value.classList.add('header--show')
       }
     })
 </script>

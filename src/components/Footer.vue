@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <div footer__container>
+        <div class="footer__container">
             <nav class="footer__nav">
                 <div class="footer__logo">
                     <img 
@@ -35,6 +35,7 @@
                             <li 
                                 v-for="list in item.lists" 
                                 :key="list.name"
+                                class="mb-8" 
                             >
                                 {{ list.name }}
                             </li>
@@ -44,9 +45,9 @@
             </nav>
 
             <my-button 
-            v-if="showScrollButton" 
-            @click="scrollToTop" 
-            class="btn__scroll-to-top"
+                v-if="showScrollButton" 
+                @click="scrollToTop" 
+                class="btn__scroll-to-top"
             >
                 <scroll-icon />
             </my-button>

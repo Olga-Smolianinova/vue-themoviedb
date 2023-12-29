@@ -1,12 +1,15 @@
 <template>
     <div class="search">
-        <form class="search__form" @submit.prevent>
+        <form 
+          @submit.prevent
+          class="search__form" 
+        >
           <my-input
-            className="search__input"
             type="text"
             name="search"
             placeholder="Пошук..."
             v-model="searchQuery"
+            className="search__input"
           />
 
           <button 

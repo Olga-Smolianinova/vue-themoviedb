@@ -7,7 +7,7 @@
             : DefaultImg" 
         :alt="movie?.title || ''" 
         :class="classImg" 
-        />
+      />
   
       <my-button v-if="movie" class="play-icon">
         <play-icon />

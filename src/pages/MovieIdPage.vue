@@ -6,9 +6,7 @@
             :style="posterBackground"
             class="banner movie" 
         >
-                <movie-card 
-                    :movie="store.movie" 
-                />
+            <movie-card :movie="store.movie" />
         </section>
     </main>
 

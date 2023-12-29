@@ -3,9 +3,7 @@
 
   <main>
     <section class="section movies">
-      <div 
-        v-if="store.movies?.length > 0" 
-      >
+      <div v-if="store.movies?.length > 0">
         <ul class="movies__gallery">
           <gallery-item
             v-for="movie in store.movies"

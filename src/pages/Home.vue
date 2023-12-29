@@ -2,17 +2,15 @@
   <my-header />
 
   <main>
-    <section class="banner banner__background">
+    <section class="banner banner--background">
       <h1 class="banner__title">Ласкаво просимо.</h1>
-      <h2 class="banner__subtitle">
-        Мільйони фільмів, серіалів і персон.
-        Досліджуйте зараз.
-      </h2>
+      <h2 class="banner__subtitle">Мільйони фільмів, серіалів і персон.
+        Досліджуйте зараз.</h2>
 
       <search-form />
     </section>
 
-    <section class="section section__background">
+    <section class="section section--background">
       <div class="container">
         <gallery 
           v-if="!store.isTrendingMoviesLoading"
@@ -39,7 +37,7 @@
             :movie="movie"
             classItem="gallery__item"
             classImg="gallery__item-image"
-            @mouseover="getTrailerPosterPath(movie.poster_path)"
+            @mouseover="getTrailerPosterPath(movie?.poster_path)"
             @click="getTrailerKey(movie.id)"
           />
         </ul>
@@ -81,7 +79,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
+  import { ref,  watch, onMounted, onBeforeUnmount } from 'vue';
   import { useHomePageStore } from '@/store/homeModule';
   import { useMovieIdPageStore } from '@/store/movieIdModule';
   import MyHeader from '@/components/Header.vue';
@@ -96,6 +94,7 @@
   const movieIdStore = useMovieIdPageStore();
 
   const dialogVisible = ref(false);
+  const posterPath = ref('');
 
   onMounted(async () => {
     await store.fetchTrendingMovies();
@@ -109,12 +108,16 @@
   });
   onBeforeUnmount(() => movieIdStore.trailer = null);
 
+  watch(() => dialogVisible.value, value => {
+    if(!value) {
+      movieIdStore.trailer = null
+    }
+  })
+
   const getTrailerKey = (movieId) => {
     movieIdStore.fetchSelectedMovieVideo(movieId);
     dialogVisible.value = true;
   };
-
-  const posterPath = ref('');
 
   const getTrailerPosterPath = (trailerPath) => {
     const backgroundColor = '3, 37, 65, 0.75';

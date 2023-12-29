@@ -11,7 +11,10 @@
             />
         </div>
 
-        <div v-if="movie" class="card__info">
+        <div 
+            v-if="movie" 
+            class="card__info"
+        >
             <h2 class="card__title">
                 {{ movie?.title }}
                 {{ getReleaseYear }}

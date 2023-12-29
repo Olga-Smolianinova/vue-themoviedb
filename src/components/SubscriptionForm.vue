@@ -1,9 +1,7 @@
 <template>
     <form>
         <h2>Зареєструвати акаунт</h2>
-        <p>
-            Реєстрація облікового запису безкоштовна та проста. Заповніть форму нижче, щоб розпочати.
-        </p>
+        <p>Реєстрація облікового запису безкоштовна та проста. Заповніть форму нижче, щоб розпочати.</p>
 
         <my-input 
             type="text" 
@@ -29,9 +27,7 @@
             >
                 Скасувати
             </my-button>
-            <my-button
-                class="btn ml-20"
-            >
+            <my-button  class="btn ml-20">
                 Відправити
             </my-button>   
         </div>
@@ -49,7 +45,5 @@
 
     const emit = defineEmits(['close']);
 
-    function onClose() {
-        emit('close', false)
-    }
+    const onClose = () => emit('close', false)
 </script>

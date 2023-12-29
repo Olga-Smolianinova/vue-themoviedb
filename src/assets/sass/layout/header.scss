@@ -9,13 +9,6 @@
   margin-left: auto;
   background-color: $primaryBackgroundColor;
 
-  &__show {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-  }
-
   &__nav {
     @include display-flex(flex);
     flex-wrap: wrap;
@@ -58,6 +51,14 @@
       }
     }
   }
+}
+
+.header--show {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 a, a:visited {

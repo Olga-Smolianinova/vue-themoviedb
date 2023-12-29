@@ -52,17 +52,17 @@ html {
       margin: 0 30px 30px;
       font-size: 30px;
     }
+  }
 
-    &__background {
-      max-width: $maxWidth;
-      margin-right: auto;
-      margin-left: auto;
-      background-image: url('@/assets/images/svg/trands-bg.svg');
-      background-repeat: no-repeat;
-      background-position: 50% 200px;
-      background-size: $maxWidth;
-      overflow: hidden;
-    }
+  .section--background {
+    max-width: $maxWidth;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url('@/assets/images/svg/trands-bg.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 200px;
+    background-size: $maxWidth;
+    overflow: hidden;
   }
 
   .container {
@@ -96,4 +96,8 @@ html {
 
   .ml-20 {
     margin-left: 20px;
+  }
+
+  .mb-8 {
+    margin-bottom: 8px;
   }
