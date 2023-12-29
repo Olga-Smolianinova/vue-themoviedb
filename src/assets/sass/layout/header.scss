@@ -1,4 +1,8 @@
 .header {
+  position: sticky;
+  top: -100%;
+  left: 0;
+  transition: top .3s;
   display: flex;
   align-items: center;
   width: 100%;
@@ -54,10 +58,7 @@
 }
 
 .header--show {
-  position: fixed;
-  width: 100%;
   top: 0;
-  left: 0;
   z-index: 999;
 }
 
